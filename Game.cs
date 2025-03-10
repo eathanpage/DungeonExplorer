@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace DungeonExplorer
 {
@@ -45,7 +46,7 @@ namespace DungeonExplorer
 
             _itemPrototypes = new Dictionary<string, Item>
             {
-                { "Rusty Knife", new Item("Rusty Knife", damage: 100) },
+                { "Rusty Knife", new Item("Rusty Knife", damage: 10) },
                 { "Apple", new Item("Apple", healing: 20) },
                 { "Shield", new Item("Shield", armor: 10) },
                 { "Potion", new Item("Potion", healing: 50) },
@@ -258,6 +259,8 @@ namespace DungeonExplorer
             {
                 Console.WriteLine("There are no more rooms.");
             }
+
+            Debug.Assert(CurrentRoomIndex >= 0 && CurrentRoomIndex < Rooms.Count, "Current room index should be within the valid range.");
         }
     }
 }

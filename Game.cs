@@ -196,12 +196,14 @@ namespace DungeonExplorer
                     {
                         Console.WriteLine("Critical hit!");
                     }
+                    
+                    Debug.Assert(_player.Health >= 0, "Player's health should be equal to or greater than zero after taking damage.");
 
                     if (!creature.IsAlive())
                     {
                         Console.WriteLine($"{creature.Name} has been defeated.");
                         creatures.RemoveAt(i);
-                        i--; // Adjust the index to account for the removed creature
+                        i--;
                         break;
                     }
 
